@@ -17,30 +17,102 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text("Awesome App"),
         ),
-        body: Center(
-          child: Container(
-            padding: const EdgeInsets.all(8),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(
             alignment: Alignment.center,
-            // color: Colors.teal,
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                // shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 7,
-                      offset: Offset(2.0, 5.0))
-                ],
-                color: Colors.teal,
-                gradient: LinearGradient(colors: [Colors.yellow, Colors.pink])),
-            child: Text("I am a box",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                )),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(65),
+                color: Colors.black87,
+              ),
+              // color: Colors.black87,
+              // width: MediaQuery.of(context).size.width,
+              // height: MediaQuery.of(context).size.height,
+              width: 200,
+              height: 400,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      alignment: Alignment.center,
+                      width: 100,
+                      height: 100,
+                      // color: Colors.red,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.white,
+                            blurRadius: 5,
+                          )
+                        ],
+                        shape: BoxShape.circle,
+                        color: Colors.red,
+                      ),
+                      child: Text(
+                        "STOP",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 20),
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      alignment: Alignment.center,
+                      width: 100,
+                      height: 100,
+                      // color: Colors.yellow,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.white,
+                            blurRadius: 5,
+                          )
+                        ],
+                        shape: BoxShape.circle,
+                        color: Colors.yellow,
+                      ),
+                      child: Text(
+                        "LOOK",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 20),
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      alignment: Alignment.center,
+                      width: 100,
+                      height: 100,
+                      // color: Colors.green,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.white,
+                            blurRadius: 5,
+                          )
+                        ],
+                        shape: BoxShape.circle,
+                        color: Colors.green,
+                      ),
+                      child: Text(
+                        "GO",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),
