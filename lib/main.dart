@@ -1,11 +1,19 @@
+// ignore_for_file: prefer_const_constructors, unnecessary_import, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: "Awesome App",
-    home: HomePage(),
-  ));
+  runApp(
+    MaterialApp(
+      title: "Awesome App",
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+    ),
+  );
 }
 
 class HomePage extends StatelessWidget {
@@ -17,103 +25,53 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text("Awesome App"),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Align(
-            alignment: Alignment.center,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(65),
-                color: Colors.black87,
-              ),
-              // color: Colors.black87,
-              // width: MediaQuery.of(context).size.width,
-              // height: MediaQuery.of(context).size.height,
-              width: 200,
-              height: 400,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      alignment: Alignment.center,
-                      width: 100,
-                      height: 100,
-                      // color: Colors.red,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.white,
-                            blurRadius: 5,
-                          )
-                        ],
-                        shape: BoxShape.circle,
-                        color: Colors.red,
-                      ),
-                      child: Text(
-                        "STOP",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                            fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      alignment: Alignment.center,
-                      width: 100,
-                      height: 100,
-                      // color: Colors.yellow,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.white,
-                            blurRadius: 5,
-                          )
-                        ],
-                        shape: BoxShape.circle,
-                        color: Colors.yellow,
-                      ),
-                      child: Text(
-                        "LOOK",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                            fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      alignment: Alignment.center,
-                      width: 100,
-                      height: 100,
-                      // color: Colors.green,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.white,
-                            blurRadius: 5,
-                          )
-                        ],
-                        shape: BoxShape.circle,
-                        color: Colors.green,
-                      ),
-                      child: Text(
-                        "GO",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      ),
-                    ),
-                  ],
+        body: Container(),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              // DrawerHeader(
+              //   child: Text(
+              //     "Hi, I am drawer",
+              //     style: TextStyle(
+              //       color: Colors.white,
+              //     ),
+              //   ),
+              //   decoration: BoxDecoration(color: Colors.indigo),
+              // ),
+
+              // ---------------------
+
+              UserAccountsDrawerHeader(
+                accountName: Text("Vaibhav"),
+                accountEmail: Text("vai07nov11@gmail.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1868&q=80"),
+
+                  // child: Image.network(
+                  //     "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1868&q=80"),
                 ),
               ),
-            ),
+
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text("Account"),
+                subtitle: Text("Personal"),
+                trailing: Icon(Icons.edit),
+              ),
+              ListTile(
+                leading: Icon(Icons.email),
+                title: Text("Email ID"),
+                subtitle: Text("vs2062@srmist.edu.in"),
+                trailing: Icon(Icons.send),
+              )
+            ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.edit),
         ),
       ),
     );
