@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    title: "Awesome App",
+    home: HomePage(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.orange, home),
+    return Container(
+      color: Colors.purpleAccent,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Awesome App"),
+        ),
+        body: Container(
+          child: Center(child: Text("Hi, Flutter Developers")),
+        ),
+      ),
     );
   }
 }
