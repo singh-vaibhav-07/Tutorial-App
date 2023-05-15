@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(
@@ -16,16 +17,65 @@ void main() {
   );
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  TextEditingController _nameController = TextEditingController();
+  var myText = "Change me";
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.purpleAccent,
       child: Scaffold(
+        backgroundColor: Colors.grey[350],
         appBar: AppBar(
-          title: Text("Awesome App"),
+          title: Text("Tutorial App"),
         ),
-        body: Container(),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: SingleChildScrollView(
+            child: Card(
+              child: Column(
+                children: <Widget>[
+                  Image.asset(
+                    "assets/spacelook.jpeg",
+                    fit: BoxFit.cover,
+                    // width: 100,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    myText,
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextField(
+                      controller: _nameController,
+                      keyboardType: TextInputType.text,
+                      // obscureText: true, // if password dalna ho
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "Enter someting here",
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -70,8 +120,11 @@ class HomePage extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.edit),
+          onPressed: () {
+            myText = _nameController.text;
+            setState(() {});
+          },
+          child: Icon(Icons.refresh),
         ),
       ),
     );
