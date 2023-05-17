@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../drawer.dart';
+import '../utils/Constants.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -36,6 +37,14 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.grey[350],
         appBar: AppBar(
           title: Text("Tutorial App"),
+          actions: <Widget>[
+            IconButton(
+                onPressed: () {
+                  Constants.prefs?.setBool("loggedIn", false);
+                  Navigator.pushReplacementNamed(context, "/login");
+                },
+                icon: Icon(Icons.exit_to_app))
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),

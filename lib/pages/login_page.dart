@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:vaibapp/bg_image.dart';
 import 'package:vaibapp/pages/home_page.dart';
+import 'package:vaibapp/utils/Constants.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -60,7 +61,9 @@ class _LoginPageState extends State<LoginPage> {
                               //     MaterialPageRoute(
                               //         builder: (context) => HomePage()));
 
-                              Navigator.pushNamed(context, "/home");
+                              Constants.prefs?.setBool("loggedIn", true);
+
+                              Navigator.pushReplacementNamed(context, "/home");
                             },
                             child: Text("Sign In"),
                             style: ElevatedButton.styleFrom(
